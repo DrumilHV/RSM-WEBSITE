@@ -1,14 +1,19 @@
+
+// import Nav from "@/components/Nav";
+import Nav from "../components/Nav";
+import Image from "next/image";
+import Link from "next/link";
 'use client'
-import Nav from '@/components/Nav'
-import ParticleBG from '@/components/ParticleBG'
-import Image from 'next/image'
+
 
 
 export default function Home() {
   return (
     <main>
+      <Nav />
+      RSM Website
       <ParticleBG/>
       <Nav/>
     </main>
-  )
+  );
 }
