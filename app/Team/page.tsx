@@ -25,11 +25,15 @@ const page = () => {
           <Nav />
         </Box>
         <Box>
-          <AppBar
+          <Box
+            width={"100%"}
+            height={{ xs: "20%", sm: "10%" }}
             sx={{
               mt: { xs: 10, sm: 11, md: 12, lg: 10 },
               ...responsiveStyles,
-              zIndex: "0",
+              backgroundColor: "#233D33",
+              // alignItems: "center",
+              zIndex: "1",
             }}
             // position="fixed"
           >
@@ -38,15 +42,20 @@ const page = () => {
                 flexGrow: 1,
                 textAlign: { xs: "center", sm: "left" },
                 color: "white",
+                // margin: { xs: "2%", sm: "1%" },
+                alignContent: "center",
               }}
               variant="h5"
             >
               Our Team
             </Typography>
-            <Typography textAlign={{ xs: "center", sm: "right" }}>
+            <Typography
+              textAlign={{ xs: "center", sm: "right" }}
+              // sx={{ margin: { xs: "1%", sm: "2%" } }}
+            >
               <Link href={`/`}>Home</Link> / Team
             </Typography>
-          </AppBar>
+          </Box>
         </Box>
         <BoardMemberCard
           boardCategory={"executive board"}
