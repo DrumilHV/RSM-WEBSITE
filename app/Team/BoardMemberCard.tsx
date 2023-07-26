@@ -8,6 +8,21 @@ import {
   CardMedia,
 } from "@mui/material";
 // const [key, setKey] = useState(0);
+const Photo = ({ src }) => {
+  return (
+    <CardMedia
+      component="img"
+      image={`/${src}`}
+      alt={`${src}`}
+      sx={{
+        borderRadius: "50%",
+        height: "180px",
+        width: "180px",
+        border: "1px solid #e3e3e3",
+      }}
+    />
+  );
+};
 
 const BoardMemberCard = ({ boardCategory, list }) => {
   return (
@@ -16,7 +31,7 @@ const BoardMemberCard = ({ boardCategory, list }) => {
         sx={{
           alignItems: "center",
           paddingX: { xs: "5%", sm: "5%" },
-          marginTop: { xs: "50%", sm: "25%", lg: "20%", xl: "10%" },
+          marginTop: { xs: "35%", sm: "15%", lg: "10%", xl: "3%" },
         }}
       >
         <Typography
@@ -29,17 +44,17 @@ const BoardMemberCard = ({ boardCategory, list }) => {
           {boardCategory.toUpperCase()}
         </Typography>
 
-        {list.map((member) => {
+        {list.map((member, index) => {
           return (
             <Stack
               key={member.name}
-              direction={{ xs: "column", md: "row" }}
+              direction={{ xs: "column", sm: "row" }}
               spacing={2}
               alignItems="center"
-              marginY={2}
+              marginY={4}
               paddingX={{ xs: "5%", sm: "10%" }}
             >
-              <CardMedia
+              {/* <CardMedia
                 component="img"
                 image={`/${member.image}`}
                 alt={`${member.name}`}
@@ -49,8 +64,8 @@ const BoardMemberCard = ({ boardCategory, list }) => {
                   width: "180px",
                   border: "1px solid #e3e3e3",
                 }}
-              />
-
+              /> */}
+              {index % 2 == 0 && <Photo src={member.image} />}
               <CardContent>
                 <Typography variant="h5" component="div" color="#fff">
                   {member.name}
@@ -65,6 +80,7 @@ const BoardMemberCard = ({ boardCategory, list }) => {
                   {member.message}
                 </Typography>
               </CardContent>
+              {index % 2 != 0 && <Photo src={member.image} />}
             </Stack>
           );
         })}

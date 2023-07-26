@@ -1,28 +1,26 @@
+"use client";
+import React, { useEffect } from "react";
 import Particles from "react-tsparticles";
 import particlesConfig from "./config/particle-config";
-import { useCallback } from "react";
 import { loadFull } from "tsparticles";
 
 const ParticleBG = () => {
-    const particleInit = useCallback(async (engine)=>{
-        console.log(engine)
-        await loadFull(engine);
-    }, [])
+  useEffect(() => {
+    const particleInit = async (engine) => {
+      console.log(engine);
+      await loadFull(engine);
+    };
 
-    const particlesLoaded = useCallback(async (container)=>{
-        await console.log(container)
-    })
+    const particlesLoaded = async (container) => {
+      await console.log(container);
+    };
 
-  return (
-    <Particles 
-        options={particlesConfig}
-        init={particleInit}
-        loaded={particlesLoaded}
-        height="100vh"
-        width="100vw"
-    >
-    </Particles>
-  )
-}
+    // Call your particle initialization and loaded functions here
+    particleInit(particlesConfig);
+    particlesLoaded(particlesConfig);
+  }, []);
 
-export default ParticleBG
+  return <Particles options={particlesConfig} height="100vh" width="100vw" />;
+};
+
+export default ParticleBG;
