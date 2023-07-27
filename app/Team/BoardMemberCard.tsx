@@ -54,17 +54,6 @@ const BoardMemberCard = ({ boardCategory, list }) => {
               marginY={4}
               paddingX={{ xs: "5%", sm: "10%" }}
             >
-              {/* <CardMedia
-                component="img"
-                image={`/${member.image}`}
-                alt={`${member.name}`}
-                sx={{
-                  borderRadius: "50%",
-                  height: "180px",
-                  width: "180px",
-                  border: "1px solid #e3e3e3",
-                }}
-              /> */}
               {index % 2 == 0 && <Photo src={member.image} />}
               <CardContent>
                 <Typography variant="h5" component="div" color="#fff">
